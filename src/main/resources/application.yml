@@ -1,0 +1,33 @@
+spring:
+  application:
+    name:  showroom-ms
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=showroom
+    driver-class-name: org.postgresql.Driver
+    password: postgres
+    username: postgres
+    hikari:
+      poolName: Hikari
+      auto-commit: false
+      username: postgres
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  liquibase:
+    enabled: true
+    change-log: db/changelog/changlog-master.xml
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=showroom
+    driver-class-name: org.postgresql.Driver
+    user: postgres
+    password: postgres
+server:
+  port: 8097
+  servlet:
+    context-path: /showroom-ms
+
+springdoc:
+  api-docs:
+      enabled: true
+  swagger-ui:
+    enabled: true
